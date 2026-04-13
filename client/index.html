@@ -8,18 +8,33 @@
 
 <h1>Notes App</h1>
 
+<h2>Create Text Note</h2>
 <input id="title" placeholder="Title">
 <br><br>
-
 <textarea id="content" placeholder="Note content"></textarea>
 <br><br>
-
 <button onclick="createNote()">Add Note</button>
 <button onclick="loadNotes()">Load Notes</button>
 
 <div id="notes"></div>
 
-<script src="script.js"></script>
+<hr>
 
+<h2>Create Todo List</h2>
+<input id="todoTitle" placeholder="Todo List Title">
+<br><br>
+<div id="tasksContainer">
+    <input class="taskText" placeholder="Task 1">
+    <input type="checkbox" class="taskCompleted"> Completed
+</div>
+<br>
+<button onclick="addTaskField()">+ Add Another Task</button>
+<br><br>
+<button onclick="createTodo()">Add Todo List</button>
+<button onclick="loadTodos()">Load Todo Lists</button>
+
+<div id="todos"></div>
+
+<script src="script.js"></script>
 </body>
 </html>
