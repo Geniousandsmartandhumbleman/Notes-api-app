@@ -1,6 +1,7 @@
 const fs = require("fs");
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
@@ -25,6 +26,14 @@ function readData() {
 function writeData(data) {
     fs.writeFileSync(DB, JSON.stringify(data, null, 2));
 }
+
+// Serve HTML page
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
+
+// Serve static files (CSS, JS)
+app.use(express.static(__dirname));
 
 // POST /notes - Create a text note
 app.post("/notes", (req, res) => {
@@ -70,6 +79,6 @@ app.get("/todos", (req, res) => {
     res.json(data.todos);
 });
 
-app.listen(3000, () => {
+app.listen(3000, "0.0.0.0", () => {
     console.log("Server running on http://0.0.0.0:3000");
 });
