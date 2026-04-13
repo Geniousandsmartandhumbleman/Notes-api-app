@@ -14,7 +14,6 @@ const DB = "data.json";
 function readData() {
     try {
         const data = JSON.parse(fs.readFileSync(DB));
-        // Ensure both arrays exist
         if (!data.notes) data.notes = [];
         if (!data.todos) data.todos = [];
         return data;
@@ -27,13 +26,13 @@ function writeData(data) {
     fs.writeFileSync(DB, JSON.stringify(data, null, 2));
 }
 
-// Serve HTML page
+// SERVE HTML FROM CLIENT FOLDER
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "../client/index.html"));
 });
 
-// Serve static files (CSS, JS)
-app.use(express.static(__dirname));
+// Serve static files from client folder (CSS, JS)
+app.use(express.static(path.join(__dirname, "../client")));
 
 // POST /notes - Create a text note
 app.post("/notes", (req, res) => {
