@@ -1,0 +1,21 @@
+{
+  "notes": [
+    {
+      "id": 1776035033194,
+      "title": "car ",
+      "content": "change"
+    }
+  ],
+  "todos": [
+    {
+      "id": 1776035074065,
+      "title": "Groceries",
+      "tasks": [
+        {
+          "text": "Lemon",
+          "completed": false
+        }
+      ]
+    }
+  ]
+}
